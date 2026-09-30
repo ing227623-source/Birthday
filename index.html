@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#170b2e">
+  <title>For Tanishka 💜</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="sparkles"></canvas>
+
+  <main class="app">
+    <section class="screen active" id="intro">
+      <div class="card">
+        <div class="eyebrow">A little something for you</div>
+        <h1>Please Read This</h1>
+        <p class="intro-text">
+          I know we do not talk all the time, and sometimes my messages probably get ignored.
+          Still, I wanted to make something special instead of sending just another ordinary birthday message.
+        </p>
+        <p class="soft-text">So... give me a minute. There is a little surprise waiting for you. ✨</p>
+        <button class="glow-btn" data-next="wish">Next <span>→</span></button>
+      </div>
+    </section>
+
+    <section class="screen" id="wish">
+      <div class="card birthday-card">
+        <div class="date-pill">16 OCTOBER</div>
+        <div class="cake">🎂</div>
+        <h2>Happy Birthday, <span>Tanishka</span>!</h2>
+        <p>
+          Wishing you a beautiful birthday filled with happiness, peaceful moments,
+          lots of smiles, and people who genuinely care about you.
+        </p>
+        <p>
+          I hope this new year of your life brings you many good memories,
+          unexpected little joys, and everything you are quietly wishing for.
+        </p>
+        <div class="wish-line">Today is your day. Enjoy every second of it. 💜</div>
+        <button class="glow-btn" id="gameBtn">Play a Game I Made Especially for You <span>→</span></button>
+      </div>
+    </section>
+
+    <section class="screen" id="game">
+      <div class="game-wrap">
+        <div class="game-head">
+          <div>
+            <div class="eyebrow">A tiny birthday challenge</div>
+            <h2>The Sparkle Puzzle</h2>
+          </div>
+          <div class="level">LEVEL <span id="levelNum">1</span>/3</div>
+        </div>
+
+        <div class="game-card">
+          <p id="gameIntro">Three little puzzles. Solve them all to unlock the final surprise.</p>
+          <div id="puzzleArea"></div>
+          <div class="game-message" id="gameMessage"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen final-screen" id="final">
+      <div class="final-glow"></div>
+      <div class="final-content">
+        <div class="burst">✦ ✧ ✦</div>
+        <div class="flying" id="flyingText">Happy Birthday, Tanishka!</div>
+        <p>You solved the little surprise. 💜</p>
+        <p class="final-small">May your 16th October be full of smiles, good memories, and magic.</p>
+        <button class="glow-btn" id="replayBtn">Play Again ↻</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast">✨ Surprise unlocked!</div>
+  <script src="script.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
