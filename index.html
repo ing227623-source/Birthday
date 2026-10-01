@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fff4fa">
+<meta name="description" content="A tiny birthday experience made especially for Tanishka.">
+<title>For Tanishka ♡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Pacifico&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="aurora aurora-a"></div><div class="aurora aurora-b"></div><div class="aurora aurora-c"></div>
+<div class="light-beam beam-a"></div><div class="light-beam beam-b"></div>
+<canvas id="bg"></canvas><div class="cursorGlow" id="cursorGlow"></div><div class="grain"></div>
+
+<button class="back-btn" id="backBtn" aria-label="Go to previous page"><span>‹</span><b>Back</b></button>
+<header class="topbar"><span class="brand">TANISHKA <i>♡</i></span><span class="step" id="step">01 / 06</span></header>
+
+<div class="sound-pill" id="soundPill"><span>♪</span><b>Sound on</b></div>
+<main>
+<section class="screen active" id="q1" data-step="01 / 06">
+ <div class="scene-card question-card hero-card">
+  <div class="shine"></div><div class="floating-pill">A tiny surprise is waiting ✦</div>
+  <div class="real-cat-wrap" aria-label="Cute cat illustration">
+   <div class="cat-shadow"></div>
+   <svg class="real-cat" viewBox="0 0 260 230" role="img" aria-label="cute fluffy pink and cream cat">
+    <defs>
+      <linearGradient id="fur" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fffdfd"/><stop offset=".55" stop-color="#fff0f6"/><stop offset="1" stop-color="#efc4d7"/></linearGradient>
+      <linearGradient id="innerEar" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f4a7c5"/><stop offset="1" stop-color="#ffd6e5"/></linearGradient>
+      <radialGradient id="faceGlow"><stop stop-color="#fff"/><stop offset="1" stop-color="#f3d1df"/></radialGradient>
+      <filter id="soft"><feGaussianBlur stdDeviation="6"/></filter>
+      <filter id="catShadow"><feDropShadow dx="0" dy="12" stdDeviation="9" flood-color="#9d5074" flood-opacity=".22"/></filter>
+    </defs>
+    <ellipse cx="130" cy="208" rx="78" ry="13" fill="#a34d7430" filter="url(#soft)"/>
+    <g filter="url(#catShadow)" transform="translate(0,-4)">
+      <path d="M67 81 L49 27 Q48 19 57 24 L101 54 Q130 43 159 54 L203 24 Q212 19 211 29 L193 82 Q213 106 207 151 Q201 202 130 207 Q59 202 53 151 Q47 106 67 81Z" fill="url(#fur)" stroke="#e7b8cd" stroke-width="4"/>
+      <path d="M60 42 L86 61 L59 56Z" fill="url(#innerEar)" opacity=".95"/><path d="M200 42 L174 61 L201 56Z" fill="url(#innerEar)" opacity=".95"/>
+      <ellipse cx="130" cy="119" rx="69" ry="73" fill="url(#faceGlow)" opacity=".62"/>
+      <ellipse cx="101" cy="117" rx="10" ry="15" fill="#493744"/><ellipse cx="159" cy="117" rx="10" ry="15" fill="#493744"/>
+      <circle cx="104" cy="112" r="3.2" fill="#fff"/><circle cx="162" cy="112" r="3.2" fill="#fff"/>
+      <path d="M122 135 Q130 128 138 135 Q135 143 130 145 Q125 143 122 135Z" fill="#df739e"/>
+      <path d="M130 144 Q121 153 113 149 M130 144 Q139 153 147 149" fill="none" stroke="#694958" stroke-width="3" stroke-linecap="round"/>
+      <ellipse cx="81" cy="143" rx="20" ry="9" fill="#ffb1cc" opacity=".48"/><ellipse cx="179" cy="143" rx="20" ry="9" fill="#ffb1cc" opacity=".48"/>
+      <path d="M69 136 L27 127 M69 146 L25 146 M191 136 L233 127 M191 146 L235 146" stroke="#9c7282" stroke-width="2" stroke-linecap="round" opacity=".65"/>
+      <path d="M92 190 Q76 202 66 187 M168 190 Q184 202 194 187" fill="none" stroke="#e4afc4" stroke-width="9" stroke-linecap="round"/>
+      <path d="M58 91 Q47 104 51 122" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".7"/>
+    </g>
+   </svg>
+   <div class="cat-heart">♡</div>
+  </div>
+  <small>question one</small><h1>Do you love me?</h1><p>Be honest... this tiny kitty is watching 👀</p>
+  <div class="buttons"><button class="primary" id="yes1">Yes ♡</button><button class="secondary" id="no1">No</button></div><div id="msg" class="micro"></div>
+ </div>
+</section>
+
+<section class="screen" id="q2" data-step="02 / 06"><div class="scene-card question-card">
+ <div class="floating-orb orb1">♡</div><div class="floating-orb orb2">✦</div><div class="mini-cat">🐱</div><small>question two</small><h1>Will you read this till the end?</h1><p>There is a little surprise waiting after the next few steps.</p>
+ <div class="buttons"><button class="primary" id="yes2">Of course ♡</button><button class="secondary" id="no2">Maybe</button></div>
+</div></section>
+
+<section class="screen" id="q3" data-step="03 / 06"><div class="scene-card question-card">
+ <div class="ticket"><span>VIP</span><b>16</b><small>OCT</small></div><small>final question</small><h1>Ready for your surprise?</h1><p>One last tap, then the real part begins ✨</p>
+ <div class="buttons"><button class="primary" id="yes3">Let's go ✨</button><button class="secondary" id="no3">Not yet</button></div>
+</div></section>
+
+<section class="screen" id="note" data-step="04 / 06"><div class="scene-card note-card">
+ <div class="paper-tape"></div><div class="envelope-stamp">♡</div><small>a little note</small><h2>Please Read This ♡</h2>
+ <div class="letter"><p>I know we don't talk all the time, and you sometimes ignore my messages 😭😂 ...but I still wanted to make something small and special for you.</p><p>So I made this little page just for you. Don't rush it—there's a tiny game and one more surprise waiting at the end. 🌷</p><div class="line"></div><span>made with lots of effort ♡</span></div>
+ <button class="primary" data-go="wish">Keep going →</button>
+</div></section>
+
+<section class="screen" id="wish" data-step="05 / 06"><div class="scene-card wish-card">
+ <div class="halo"></div><div class="wish-stars">✦　♡　✦</div><div class="date"><b>16</b><span>OCTOBER</span></div>
+ <div class="cake3d"><div class="flame"></div><div class="candle"></div><div class="cake-top"></div><div class="cake-body"></div><div class="cake-base"></div><span>♡</span></div>
+ <h2 class="script">Happy Birthday,<br><span>Tanishka!</span></h2>
+ <div class="wish-copy"><p>May your day feel soft, bright and full of little moments that make you genuinely smile.</p><p>And because a normal birthday wish was way too boring... I made you a little world to explore. 🎀</p></div>
+ <div class="signature">— made especially for you, with way too much effort ♡</div>
+ <button class="primary big-btn" id="start">Enter the mini game <span>→</span></button>
+</div></section>
+
+<section class="screen" id="game" data-step="06 / 06"><div class="scene-card game-card">
+ <div class="game-head"><div><small>THE SECRET MINI GAME</small><h2 class="script">Catch the Butterflies!</h2></div><div class="badge">8 ✦</div></div>
+ <p>Catch <b>8 butterflies</b> before the timer reaches zero.</p>
+ <div class="stage" id="stage"><div class="stage-glow"></div><div class="hud"><span>🦋 <b id="score">0</b>/8</span><span>TIME <b id="time">25</b></span></div><div class="stage-deco d1">✦</div><div class="stage-deco d2">♡</div><div class="stage-cloud c1"></div><div class="stage-cloud c2"></div><div class="kitty3d">🐱</div><div class="overlay" id="overlay"><div class="overlay-icon">🦋</div><h3>Ready?</h3><p>Catch them all!</p><button class="primary" id="play">Start game</button></div></div>
+ <p class="hint" id="hint">Tap a butterfly when you see one!</p>
+</div></section>
+
+<section class="screen" id="final" data-step="06 / 06"><div class="scene-card final-card">
+ <div class="final-rays"></div><div class="crown">✦ ♡ ✦</div><div class="bigcat">😽</div><div class="confetti-title">YOU DID IT!</div>
+ <h2 class="script">Happy Birthday,<br><span>Tanishka!</span></h2><p>8 butterflies caught. 1 tiny surprise unlocked. 💗</p>
+ <div class="final-note">I hope this little corner of the internet made you smile today. You deserve a beautiful year ahead. ♡</div>
+ <button class="primary" id="again">Play the game again ↻</button>
+</div></section>
+</main>
+<div class="progress"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<script src="script.js"></script><script src="game.js"></script>
+</body></html>
