@@ -4,7 +4,8 @@ const order=screens.map(x=>x.id);
 let history=['q1']; let audio=null; let audioStarted=false;
 
 function sparkleBurst(){
-  for(let i=0;i<22;i++){
+  const sparkleCount=innerWidth<720?9:18;
+  for(let i=0;i<sparkleCount;i++){
     const z=document.createElement('span'); z.className='sparkle'; z.textContent=['✦','✧','♡','•','❀'][i%5];
     z.style.left=(44+Math.random()*12)+'vw'; z.style.top=(42+Math.random()*16)+'vh';
     z.style.setProperty('--dx',(Math.random()-.5)*380+'px'); z.style.setProperty('--dy',(Math.random()-.5)*300-20+'px');
@@ -19,10 +20,11 @@ function S(id,{push=true}={}){
   el.classList.add('active');
   const idx=Math.max(0,order.indexOf(id));
   step.textContent=el.dataset.step||'06 / 06';
-  dots.forEach((d,i)=>d.classList.toggle('on',i===Math.min(5,idx)));
+  dots.forEach((d,i)=>d.classList.toggle('on',i===Math.min(dots.length-1,idx)));
   backBtn.classList.toggle('show',idx>0);
   if(push && history[history.length-1]!==id) history.push(id);
   sparkleBurst();
+  if(id==='wish') playBirthdayVoice();
   if(id!=='game' && typeof stopGame==='function') stopGame();
   window.scrollTo(0,0);
 }
@@ -48,7 +50,8 @@ $('#yes3').onclick=()=>go('note');
 $('#no2').onclick=()=>{ $('#no2').textContent='Okay ♡'; $('#no2').animate([{transform:'scale(1)'},{transform:'scale(.9)'},{transform:'scale(1)'}],{duration:320}) };
 $('#no3').onclick=()=>{ $('#no3').textContent="I'll wait ♡"; $('#no3').animate([{transform:'translateY(0)'},{transform:'translateY(-5px)'},{transform:'translateY(0)'}],{duration:360}) };
 $('[data-go="wish"]').onclick=()=>go('wish');
-$('#start').onclick=()=>{startAudio();go('game')};
+$('#start').onclick=()=>{startAudio();go('wishbox')};
+$('#toGame').onclick=()=>{startAudio();go('game')};
 $('#again').onclick=()=>{if(typeof resetGame==='function')resetGame();go('game')};
 
 function startAudio(){
@@ -57,6 +60,15 @@ function startAudio(){
   audio=new Audio('ambient.wav'); audio.loop=true; audio.volume=.12;
   audio.play().catch(()=>{});
 }
+
+const birthdayVoice=$('#birthdayVoice');
+const replayWishSound=$('#replayWishSound');
+function playBirthdayVoice(){
+  if(!birthdayVoice)return;
+  try{if(audio)audio.pause();birthdayVoice.pause();birthdayVoice.currentTime=0;const p=birthdayVoice.play();if(p&&p.catch)p.catch(()=>{if(replayWishSound)replayWishSound.classList.add('needs-tap')});if(replayWishSound)replayWishSound.classList.remove('needs-tap')}catch(e){if(replayWishSound)replayWishSound.classList.add('needs-tap')}
+}
+birthdayVoice?.addEventListener('ended',()=>{if(audioStarted&&audio)audio.play().catch(()=>{})});
+if(replayWishSound)replayWishSound.addEventListener('click',playBirthdayVoice);
 
 // Cinematic cursor lighting + subtle 3D card movement on desktop.
 const glow=$('#cursorGlow');
@@ -71,10 +83,12 @@ document.addEventListener('mouseleave',()=>$$('.scene-card').forEach(c=>c.style.
 
 // Floating background particles.
 const cv=$('#bg'),ctx=cv.getContext('2d'); let stars=[];
-function resize(){const d=Math.min(devicePixelRatio||1,2);cv.width=innerWidth*d;cv.height=innerHeight*d;cv.style.width=innerWidth+'px';cv.style.height=innerHeight+'px';ctx.setTransform(d,0,0,d,0,0)}
-function seed(){stars=Array.from({length:95},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:.35+Math.random()*1.8,v:.04+Math.random()*.2,p:Math.random()*6.28,a:.15+Math.random()*.4}))}
-function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);for(const s of stars){s.y-=s.v;s.p+=.012;if(s.y<0)s.y=innerHeight;const a=s.a+.18*Math.sin(s.p);ctx.beginPath();ctx.arc(s.x,s.y,s.r+Math.sin(s.p)*.3,0,Math.PI*2);ctx.fillStyle=`rgba(238,145,184,${a})`;ctx.fill()}requestAnimationFrame(draw)}
-addEventListener('resize',()=>{resize();seed()});resize();seed();requestAnimationFrame(draw);
+function resize(){const d=Math.min(devicePixelRatio||1,innerWidth<720?1:1.5);cv.width=Math.round(innerWidth*d);cv.height=Math.round(innerHeight*d);cv.style.width=innerWidth+'px';cv.style.height=innerHeight+'px';ctx.setTransform(d,0,0,d,0,0)}
+function seed(){const count=innerWidth<720?28:68;stars=Array.from({length:count},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:.35+Math.random()*1.3,v:.035+Math.random()*.12,p:Math.random()*6.28,a:.12+Math.random()*.28}))}
+let frame=0;function draw(){if(document.hidden){frame=requestAnimationFrame(draw);return}ctx.clearRect(0,0,innerWidth,innerHeight);for(const s of stars){s.y-=s.v;s.p+=.012;if(s.y<0)s.y=innerHeight;const a=s.a+.12*Math.sin(s.p);ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(238,145,184,${a})`;ctx.fill()}frame=requestAnimationFrame(draw)}
+addEventListener('resize',()=>{resize();seed()},{passive:true});resize();seed();frame=requestAnimationFrame(draw);
 
 // Start on the first page and make browser back behave like the in-page button.
 S('q1',{push:false});
+
+$$('.wish-tile').forEach(tile=>tile.addEventListener('click',()=>{tile.classList.toggle('open')}));

@@ -20,7 +20,7 @@
 
 <div class="sound-pill" id="soundPill"><span>♪</span><b>Sound on</b></div>
 <main>
-<section class="screen active" id="q1" data-step="01 / 06">
+<section class="screen active" id="q1" data-step="01 / 07">
  <div class="scene-card question-card hero-card">
   <div class="shine"></div><div class="floating-pill">A tiny surprise is waiting ✦</div>
   <div class="real-cat-wrap" aria-label="Cute cat illustration">
@@ -55,45 +55,58 @@
  </div>
 </section>
 
-<section class="screen" id="q2" data-step="02 / 06"><div class="scene-card question-card">
+<section class="screen" id="q2" data-step="02 / 07"><div class="scene-card question-card">
  <div class="floating-orb orb1">♡</div><div class="floating-orb orb2">✦</div><div class="mini-cat">🐱</div><small>question two</small><h1>Will you read this till the end?</h1><p>There is a little surprise waiting after the next few steps.</p>
  <div class="buttons"><button class="primary" id="yes2">Of course ♡</button><button class="secondary" id="no2">Maybe</button></div>
 </div></section>
 
-<section class="screen" id="q3" data-step="03 / 06"><div class="scene-card question-card">
+<section class="screen" id="q3" data-step="03 / 07"><div class="scene-card question-card">
  <div class="ticket"><span>VIP</span><b>16</b><small>OCT</small></div><small>final question</small><h1>Ready for your surprise?</h1><p>One last tap, then the real part begins ✨</p>
  <div class="buttons"><button class="primary" id="yes3">Let's go ✨</button><button class="secondary" id="no3">Not yet</button></div>
 </div></section>
 
-<section class="screen" id="note" data-step="04 / 06"><div class="scene-card note-card">
+<section class="screen" id="note" data-step="04 / 07"><div class="scene-card note-card">
  <div class="paper-tape"></div><div class="envelope-stamp">♡</div><small>a little note</small><h2>Please Read This ♡</h2>
  <div class="letter"><p>I know we don't talk all the time, and you sometimes ignore my messages 😭😂 ...but I still wanted to make something small and special for you.</p><p>So I made this little page just for you. Don't rush it—there's a tiny game and one more surprise waiting at the end. 🌷</p><div class="line"></div><span>made with lots of effort ♡</span></div>
  <button class="primary" data-go="wish">Keep going →</button>
 </div></section>
 
-<section class="screen" id="wish" data-step="05 / 06"><div class="scene-card wish-card">
- <div class="halo"></div><div class="wish-stars">✦　♡　✦</div><div class="date"><b>16</b><span>OCTOBER</span></div>
+<section class="screen" id="wish" data-step="05 / 07"><div class="scene-card wish-card">
+ <button class="sound-replay" id="replayWishSound" type="button" aria-label="Replay birthday voice">↻ Replay wish sound</button><div class="halo"></div><div class="wish-stars">✦　♡　✦</div><div class="date"><b>16</b><span>OCTOBER</span></div>
  <div class="cake3d"><div class="flame"></div><div class="candle"></div><div class="cake-top"></div><div class="cake-body"></div><div class="cake-base"></div><span>♡</span></div>
  <h2 class="script">Happy Birthday,<br><span>Tanishka!</span></h2>
  <div class="wish-copy"><p>May your day feel soft, bright and full of little moments that make you genuinely smile.</p><p>And because a normal birthday wish was way too boring... I made you a little world to explore. 🎀</p></div>
  <div class="signature">— made especially for you, with way too much effort ♡</div>
- <button class="primary big-btn" id="start">Enter the mini game <span>→</span></button>
+ <button class="primary big-btn" id="start">Open your little wishes <span>→</span></button>
 </div></section>
 
-<section class="screen" id="game" data-step="06 / 06"><div class="scene-card game-card">
+<section class="screen" id="wishbox" data-step="06 / 07"><div class="scene-card wishbox-card">
+ <div class="floating-orb orb1">♡</div><div class="floating-orb orb2">✦</div>
+ <small>little wishes, just for you</small><h2 class="script">A tiny wish box ♡</h2>
+ <p>Tap each card to reveal a little wish for your new year.</p>
+ <div class="wish-tiles">
+  <button class="wish-tile" type="button"><span class="tile-icon">🌷</span><b>More happiness</b><span class="tile-reveal">May your days bring you reasons to smile, even in the smallest moments. ♡</span></button>
+  <button class="wish-tile" type="button"><span class="tile-icon">⭐</span><b>Big dreams</b><span class="tile-reveal">May you keep discovering things you love and feel proud of how far you go. ✨</span></button>
+  <button class="wish-tile" type="button"><span class="tile-icon">🧸</span><b>Soft moments</b><span class="tile-reveal">May you always have comfort, kindness, and people who make you feel appreciated. 💗</span></button>
+ </div>
+ <button class="primary" id="toGame">Open the mini game →</button>
+</div></section>
+
+<section class="screen" id="game" data-step="07 / 07"><div class="scene-card game-card">
  <div class="game-head"><div><small>THE SECRET MINI GAME</small><h2 class="script">Catch the Butterflies!</h2></div><div class="badge">8 ✦</div></div>
  <p>Catch <b>8 butterflies</b> before the timer reaches zero.</p>
  <div class="stage" id="stage"><div class="stage-glow"></div><div class="hud"><span>🦋 <b id="score">0</b>/8</span><span>TIME <b id="time">25</b></span></div><div class="stage-deco d1">✦</div><div class="stage-deco d2">♡</div><div class="stage-cloud c1"></div><div class="stage-cloud c2"></div><div class="kitty3d">🐱</div><div class="overlay" id="overlay"><div class="overlay-icon">🦋</div><h3>Ready?</h3><p>Catch them all!</p><button class="primary" id="play">Start game</button></div></div>
  <p class="hint" id="hint">Tap a butterfly when you see one!</p>
 </div></section>
 
-<section class="screen" id="final" data-step="06 / 06"><div class="scene-card final-card">
+<section class="screen" id="final" data-step="07 / 07"><div class="scene-card final-card">
  <div class="final-rays"></div><div class="crown">✦ ♡ ✦</div><div class="bigcat">😽</div><div class="confetti-title">YOU DID IT!</div>
  <h2 class="script">Happy Birthday,<br><span>Tanishka!</span></h2><p>8 butterflies caught. 1 tiny surprise unlocked. 💗</p>
  <div class="final-note">I hope this little corner of the internet made you smile today. You deserve a beautiful year ahead. ♡</div>
  <button class="primary" id="again">Play the game again ↻</button>
 </div></section>
 </main>
-<div class="progress"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<div class="progress"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<audio id="birthdayVoice" src="birthday-voice.mp3" preload="none"></audio>
 <script src="script.js"></script><script src="game.js"></script>
 </body></html>
