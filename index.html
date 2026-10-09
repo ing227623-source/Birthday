@@ -10,7 +10,23 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Pacifico&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body>\n<div id="introScreen" class="intro-screen" aria-label="Birthday surprise loading">
+  <div class="intro-stars">✦　♡　✧　♡　✦</div>
+  <div class="intro-kicker">A little surprise for Tanishka</div>
+  <div class="intro-stage">
+    <div class="intro-heart-wrap" id="introHeartWrap">
+      <img class="intro-heart" src="heart.png" alt="Pixel heart">
+      <div class="intro-photo-heart"><img src="photo.jpg" alt="Tanishka"></div>
+      <div class="heart-cracks">✦ ✧ ♥ ✧ ✦</div>
+    </div>
+    <div class="intro-arrow" id="introArrow">➶</div>
+    <div class="intro-kitty"><span class="kitty-bow">⌁</span><span class="kitty-face">🐱</span><span class="kitty-bow-weapon">🏹</span></div>
+  </div>
+  <div class="intro-loading-text" id="introLoadingText">A tiny heart is on its way… ♡</div>
+  <div class="intro-progress"><span></span></div>
+  <button class="intro-skip" id="introSkip">Skip intro ›</button>
+</div>
+
 <div class="aurora aurora-a"></div><div class="aurora aurora-b"></div><div class="aurora aurora-c"></div>
 <div class="light-beam beam-a"></div><div class="light-beam beam-b"></div>
 <canvas id="bg"></canvas><div class="cursorGlow" id="cursorGlow"></div><div class="grain"></div>
@@ -109,4 +125,17 @@
 <div class="progress"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
 <audio id="birthdayVoice" src="birthday-voice.mp3" preload="none"></audio>
 <script src="script.js"></script><script src="game.js"></script>
-</body></html>
+<script>
+(function(){
+ const intro=document.getElementById('introScreen');
+ if(!intro)return;
+ const text=document.getElementById('introLoadingText');
+ let done=false;
+ function finish(){if(done)return;done=true;intro.classList.add('hide');setTimeout(()=>intro.remove(),750);}
+ const shotTimer=setTimeout(()=>{if(done)return;intro.classList.add('shot');if(text)text.textContent='Bullseye! A little love for you… ♡';},900);
+ const revealTimer=setTimeout(()=>{if(done)return;intro.classList.add('reveal');if(text)text.textContent='Surprise, Tanishka! ✨';},1900);
+ const finishTimer=setTimeout(finish,5100);
+ document.getElementById('introSkip').addEventListener('click',()=>{clearTimeout(shotTimer);clearTimeout(revealTimer);clearTimeout(finishTimer);finish();});
+})();
+</script>
+\n</body></html>

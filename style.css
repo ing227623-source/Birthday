@@ -13,3 +13,38 @@
 @media(max-width:720px){.aurora{filter:blur(42px);opacity:.28;animation:none}.light-beam{display:none}.grain{display:none}.scene-card{backdrop-filter:blur(7px);transition:transform .16s ease,box-shadow .2s ease}.scene-card:after{filter:blur(13px)}.screen.active{animation:screenIn .38s ease-out}.wish-tiles{gap:8px}.wish-tile{min-height:155px;padding:13px 8px;box-shadow:0 5px 0 #e8c8d7,0 9px 15px #bd718e12,inset 0 2px 0 #fff}.tile-icon{font-size:27px}.tile-reveal{font-size:10px}}
 @media(max-width:440px){.wish-tiles{grid-template-columns:1fr;max-width:300px}.wish-tile{min-height:0;display:grid;grid-template-columns:36px 1fr;justify-items:start;text-align:left;padding:12px 15px;gap:3px 10px}.tile-icon{grid-row:span 2}.wish-tile b{align-self:end}.tile-reveal{grid-column:2}.wishbox-card{padding-top:32px}}
 @media(prefers-reduced-motion:reduce){.wish-tile.open .tile-reveal{animation:none}}
+
+/* Lightweight cinematic heart intro */
+.intro-screen{position:fixed;inset:0;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(ellipse at 50% 75%,#49204e 0%,#21102f 48%,#10091d 100%);color:#fff5fb;transition:opacity .65s ease,visibility .65s ease;padding:24px 16px;box-sizing:border-box}
+.intro-screen.hide{opacity:0;visibility:hidden;pointer-events:none}
+.intro-stars{position:absolute;top:9%;color:#ffb9df;letter-spacing:12px;font-size:18px;animation:introTwinkle 2s ease-in-out infinite alternate}
+.intro-kicker{font-size:clamp(14px,3.8vw,18px);letter-spacing:.08em;color:#ffd5eb;text-align:center;margin-bottom:22px}
+.intro-stage{position:relative;width:min(88vw,380px);height:min(66vw,300px);min-height:220px;display:flex;align-items:flex-end;justify-content:flex-start}
+.intro-kitty{position:absolute;left:3%;bottom:6px;display:flex;align-items:center;gap:0;filter:drop-shadow(0 10px 10px #0006);animation:kittyBob 1.7s ease-in-out infinite}
+.kitty-face{font-size:clamp(64px,18vw,94px);line-height:1}
+.kitty-bow-weapon{font-size:clamp(36px,10vw,48px);transform:rotate(-15deg);margin-left:-13px}
+.kitty-bow{position:absolute;top:-12px;left:34px;color:#ffb1d7;font-size:28px}
+.intro-heart-wrap{position:absolute;right:5%;top:0;width:clamp(115px,36vw,165px);aspect-ratio:1;display:grid;place-items:center;animation:heartFloat 1.8s ease-in-out infinite}
+.intro-heart,.intro-photo-heart{grid-area:1/1;width:100%;height:100%;object-fit:contain;transition:opacity .25s,transform .5s}
+.intro-photo-heart{opacity:0;clip-path:polygon(50% 92%,15% 60%,4% 43%,5% 25%,17% 12%,32% 14%,50% 31%,68% 14%,83% 12%,95% 25%,96% 43%,85% 60%);overflow:hidden;transform:scale(.4)}
+.intro-photo-heart img{width:100%;height:100%;object-fit:cover;object-position:center}
+.intro-screen.shot .intro-arrow{animation:arrowShot .7s ease-in forwards}
+.intro-arrow{position:absolute;left:35%;bottom:85px;font-size:43px;color:#ffe4f2;transform:rotate(-15deg);text-shadow:0 0 14px #ff8bc9;opacity:0}
+.intro-screen.shot .intro-arrow{opacity:1}
+.intro-screen.shot .intro-heart{animation:heartDrop .75s .65s ease-in forwards}
+.intro-screen.reveal .intro-heart{opacity:0;transform:scale(.2) rotate(30deg)}
+.intro-screen.reveal .intro-photo-heart{opacity:1;transform:scale(1);filter:drop-shadow(0 0 18px #ff9bce)}
+.heart-cracks{position:absolute;inset:0;display:grid;place-items:center;color:#fff;opacity:0;font-size:22px}
+.intro-screen.reveal .heart-cracks{animation:crackPop .65s ease-out}
+.intro-loading-text{font-size:14px;color:#f8d9eb;text-align:center;margin-top:10px}
+.intro-progress{width:min(190px,55vw);height:4px;background:#ffffff25;border-radius:10px;margin-top:16px;overflow:hidden}
+.intro-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#ffacd6,#fff);border-radius:10px;animation:progressFill 4.7s linear forwards}
+.intro-skip{margin-top:20px;border:1px solid #ffffff60;border-radius:99px;padding:9px 16px;color:#fff;background:#ffffff12;font:inherit;font-size:12px;backdrop-filter:blur(8px)}
+@keyframes introTwinkle{to{opacity:.45;transform:translateY(-4px)}}
+@keyframes kittyBob{50%{transform:translateY(-7px)}}
+@keyframes heartFloat{50%{transform:translateY(-10px) rotate(2deg)}}
+@keyframes arrowShot{0%{transform:translate(0,0) rotate(-15deg);opacity:1}100%{transform:translate(150px,-105px) rotate(-15deg);opacity:0}}
+@keyframes heartDrop{0%{transform:translateY(0) rotate(0)}65%{transform:translateY(70px) rotate(12deg)}100%{transform:translateY(82px) scale(.92) rotate(18deg);opacity:.1}}
+@keyframes crackPop{0%{opacity:0;transform:scale(.4)}40%{opacity:1;transform:scale(1.3)}100%{opacity:0;transform:scale(1.8)}}
+@keyframes progressFill{to{width:100%}}
+@media(prefers-reduced-motion:reduce){.intro-screen *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
