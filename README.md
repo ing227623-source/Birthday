@@ -1,14 +1,19 @@
-# Tanishka Birthday Website — GitHub Pages Ready
+TANISHKA — DARK AESTHETIC BIRTHDAY SITE
 
-## Upload to GitHub Pages
-1. Extract this ZIP.
-2. Upload **all files inside this ZIP** directly into the root of your `Birthday` repository. `index.html` must be in the repository root. Do not upload the ZIP itself.
-3. In GitHub, open Settings → Pages and select your publishing branch and `/ (root)` if you publish from a branch.
-4. Open the published site and refresh once if the browser cached the older version.
+GitHub Pages-ready static website.
 
-## Included
-- `index.html`, `style.css`, `script.js`, `game.js`
-- `birthday-voice.mp3`: your supplied birthday voice, automatically attempted when the Happy Birthday page opens, with a Replay Wish Sound button.
-- `ambient.wav`: low-volume background ambience used after the first interaction.
+Files in repository root:
+- index.html
+- style.css
+- script.js
+- heart.png
+- photo.jpg
+- birthday-voice.mp3
 
-The page transitions and particle effects are tuned to use fewer effects on phones. Mobile Chrome may block autoplay in some circumstances; use **Replay wish sound** if the voice does not start automatically.
+Publish from the repository root (or /docs if you move every file there).
+Upload the CONTENTS of this folder, not the ZIP itself and not an extra enclosing folder.
+
+Flow:
+1. Short cat-and-pixel-heart intro with photo reveal; Skip intro is available.
+2. Minimal birthday note.
+3. Happy Birthday page. The supplied voice attempts to play when the button is pressed; Replay birthday voice is always available because some mobile browsers restrict playback.
